@@ -1,0 +1,21 @@
+{
+	"name": "PL_WAIT",
+	"properties": {
+		"description": "Wait pipeline",
+		"activities": [
+			{
+				"name": "Wait For 5 Seconds",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			}
+		],
+		"folder": {
+			"name": "FirstPL"
+		},
+		"annotations": []
+	}
+}
