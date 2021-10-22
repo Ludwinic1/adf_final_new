@@ -1,0 +1,9 @@
+{
+	"name": "adf-njl-final-clean",
+	"location": "centralus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2c57a730-096c-4277-b695-e91412ed028c",
+		"tenantId": "2aa8e0e2-e629-4970-b9d6-d534a9ac3386"
+	}
+}
