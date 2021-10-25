@@ -4,12 +4,12 @@
 		"description": "Wait pipeline",
 		"activities": [
 			{
-				"name": "Wait For 5 Seconds",
+				"name": "Wait For 20 Seconds",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
-					"waitTimeInSeconds": 25
+					"waitTimeInSeconds": 20
 				}
 			}
 		],
