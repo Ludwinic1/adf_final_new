@@ -1,0 +1,20 @@
+{
+	"name": "PL_WAIT3",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait3",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 3
+				}
+			}
+		],
+		"folder": {
+			"name": "FirstPL"
+		},
+		"annotations": []
+	}
+}
