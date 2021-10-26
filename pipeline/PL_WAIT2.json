@@ -4,7 +4,7 @@
 		"description": "wait2",
 		"activities": [
 			{
-				"name": "Wait for 30 Secondsasdf",
+				"name": "Wait for 30 Secondsrrrr",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
