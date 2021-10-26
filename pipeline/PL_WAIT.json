@@ -4,7 +4,7 @@
 		"description": "Wait pipeline",
 		"activities": [
 			{
-				"name": "Wait For 20 S",
+				"name": "Wait For 20 Seeeeeeee",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
