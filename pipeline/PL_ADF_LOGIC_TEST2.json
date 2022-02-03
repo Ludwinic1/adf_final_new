@@ -1,5 +1,5 @@
 {
-	"name": "PL_ADF_LOGIC_TEST1",
+	"name": "PL_ADF_LOGIC_TEST2",
 	"properties": {
 		"activities": [
 			{
@@ -38,7 +38,7 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Wait2_copy1_copy1_copy2",
+						"activity": "Web Activity",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -54,9 +54,9 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Web Activity",
+						"activity": "Wait2_copy1_copy1_copy2",
 						"dependencyConditions": [
-							"Failed"
+							"Succeeded"
 						]
 					}
 				],
@@ -100,7 +100,7 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Wait2_copy1_copy1_copy2",
+						"activity": "Web Activity",
 						"dependencyConditions": [
 							"Failed"
 						]
