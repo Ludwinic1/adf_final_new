@@ -7,24 +7,23 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Wait2_copy1_copy1_copy1",
+						"activity": "Top Succeed bottom fails_copy1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Top Succeed bottom fails_copy1_copy1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Both Succeed",
 						"dependencyConditions": [
 							"Completed",
 							"Skipped"
 						]
-					},
-					{
-						"activity": "Wait2_copy1",
-						"dependencyConditions": [
-							"Completed",
-							"Skipped"
-						]
-					},
-					{
-						"activity": "Wait2_copy1_copy1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
 					}
 				],
 				"userProperties": [],
@@ -33,13 +32,13 @@
 				}
 			},
 			{
-				"name": "Wait2_copy1",
+				"name": "Failure 1 Dummy",
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Web Activity",
+						"activity": "Web Activity_copy1",
 						"dependencyConditions": [
-							"Succeeded"
+							"Failed"
 						]
 					}
 				],
@@ -49,11 +48,33 @@
 				}
 			},
 			{
-				"name": "Wait2_copy1_copy1_copy1",
+				"name": "Failure 2 Dummy",
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Wait2_copy1_copy1_copy2",
+						"activity": "Failure 2 Dummy_copy1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Both Fail",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Failure 1 Dummy",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Failure 2 Dummy",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -65,7 +86,23 @@
 				}
 			},
 			{
-				"name": "Web Activity",
+				"name": "Log Both Failed",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Both Fail",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Web Activity_copy1",
 				"type": "WebActivity",
 				"dependsOn": [],
 				"policy": {
@@ -86,7 +123,7 @@
 				}
 			},
 			{
-				"name": "Wait2_copy1_copy1_copy2",
+				"name": "Failure 2 Dummy_copy1",
 				"type": "Wait",
 				"dependsOn": [],
 				"userProperties": [],
@@ -95,13 +132,97 @@
 				}
 			},
 			{
-				"name": "Wait2_copy1_copy1",
+				"name": "Top Succeed bottom fails",
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Web Activity",
+						"activity": "Web Activity_copy1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Failure 2 Dummy_copy1",
 						"dependencyConditions": [
 							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Bottom Succeeds Top Fails",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Failure 2 Dummy_copy1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Web Activity_copy1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Top Succeed bottom fails_copy1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Top Succeed bottom fails",
+						"dependencyConditions": [
+							"Completed",
+							"Skipped"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Top Succeed bottom fails_copy1_copy1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Top Succeed bottom fails",
+						"dependencyConditions": [
+							"Skipped"
+						]
+					},
+					{
+						"activity": "Bottom Succeeds Top Fails",
+						"dependencyConditions": [
+							"Completed",
+							"Skipped"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Both Succeed",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Web Activity_copy1",
+						"dependencyConditions": [
+							"Succeeded"
 						]
 					}
 				],
