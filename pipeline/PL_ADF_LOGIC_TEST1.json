@@ -1,0 +1,96 @@
+{
+	"name": "PL_ADF_LOGIC_TEST1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Final Wait",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Wait2_copy1_copy1_copy1",
+						"dependencyConditions": [
+							"Completed",
+							"Skipped"
+						]
+					},
+					{
+						"activity": "Wait2_copy1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Wait2_copy1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Web1_copy1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Wait2_copy1_copy1_copy1",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Wait2_copy1_copy1_copy2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Web1_copy1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://azure.com",
+					"method": "GET",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://www.azurepurview.com"
+					}
+				}
+			},
+			{
+				"name": "Wait2_copy1_copy1_copy2",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"folder": {
+			"name": "adf-logic-test"
+		},
+		"annotations": []
+	}
+}
