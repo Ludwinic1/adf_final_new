@@ -1,5 +1,5 @@
 {
-	"name": "PL_ADF_LOGIC_TopFailsBottomWorks",
+	"name": "PL_ADF_LOGIC_TEST2_copy1",
 	"properties": {
 		"activities": [
 			{
@@ -32,32 +32,18 @@
 				}
 			},
 			{
-				"name": "Failure 1 Dummy",
+				"name": "Failure top Dummy",
 				"type": "Wait",
-				"dependsOn": [
-					{
-						"activity": "Web Activity_copy1",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
+				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
 					"waitTimeInSeconds": 1
 				}
 			},
 			{
-				"name": "Failure 2 Dummy",
+				"name": "Failure bottom Dummy",
 				"type": "Wait",
-				"dependsOn": [
-					{
-						"activity": "Failure 2 Dummy_copy1",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
+				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
 					"waitTimeInSeconds": 1
@@ -68,13 +54,13 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Failure 1 Dummy",
+						"activity": "Failure top Dummy",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Failure 2 Dummy",
+						"activity": "Failure bottom Dummy",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -102,49 +88,19 @@
 				}
 			},
 			{
-				"name": "Web Activity_copy1",
-				"type": "WebActivity",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"url": "https://azure.com",
-					"method": "GET",
-					"authentication": {
-						"type": "MSI",
-						"resource": "https://www.azurepurview.com"
-					}
-				}
-			},
-			{
-				"name": "Failure 2 Dummy_copy1",
-				"type": "Wait",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"waitTimeInSeconds": 1
-				}
-			},
-			{
 				"name": "Top Succeed bottom fails",
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Web Activity_copy1",
+						"activity": "Web Activity_copy1_copy1",
 						"dependencyConditions": [
-							"Succeeded"
+							"Failed"
 						]
 					},
 					{
-						"activity": "Failure 2 Dummy_copy1",
+						"activity": "start1",
 						"dependencyConditions": [
-							"Failed"
+							"Succeeded"
 						]
 					}
 				],
@@ -158,13 +114,13 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Failure 2 Dummy_copy1",
+						"activity": "Web Activity_copy1_copy1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Web Activity_copy1",
+						"activity": "start1",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -220,18 +176,48 @@
 				"type": "Wait",
 				"dependsOn": [
 					{
-						"activity": "Web Activity_copy1",
+						"activity": "start1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Failure 2 Dummy_copy1",
+						"activity": "Web Activity_copy1_copy1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					}
 				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			},
+			{
+				"name": "Web Activity_copy1_copy1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://azure.com",
+					"method": "GET",
+					"authentication": {
+						"type": "MSI",
+						"resource": "https://www.azurepurview.com"
+					}
+				}
+			},
+			{
+				"name": "start1",
+				"type": "Wait",
+				"dependsOn": [],
 				"userProperties": [],
 				"typeProperties": {
 					"waitTimeInSeconds": 1
