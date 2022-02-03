@@ -23,8 +23,7 @@
 					{
 						"activity": "Wait2_copy1_copy1",
 						"dependencyConditions": [
-							"Succeeded",
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
