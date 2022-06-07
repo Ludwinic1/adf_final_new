@@ -818,8 +818,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/firstcontainer/blobs/asdf",
-					"blobPathEndsWith": "adsf",
+					"blobPathBeginsWith": "/firstcontainer/blobs/",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('TR_EVENT_ADLS_properties_typeProperties_scope')]",
 					"events": [
