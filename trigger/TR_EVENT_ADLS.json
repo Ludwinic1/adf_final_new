@@ -13,7 +13,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/firstcontainer/blobs/",
+			"blobPathBeginsWith": "/firstcontainer/blobs/testdir/",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-trigger/providers/Microsoft.Storage/storageAccounts/adlseventtriggernjl",
 			"events": [
