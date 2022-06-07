@@ -818,7 +818,7 @@
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/firstcontainer/blobs/",
+					"blobPathBeginsWith": "/firstcontainer/blobs/testdir/",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('TR_EVENT_ADLS_properties_typeProperties_scope')]",
 					"events": [
