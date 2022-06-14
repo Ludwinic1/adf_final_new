@@ -1,9 +1,9 @@
 {
-	"name": "TR_EVENT_BLOB_PE",
+	"name": "TR_EVENT_BLOB_PE2",
 	"properties": {
 		"description": "with PE on BLOB",
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
