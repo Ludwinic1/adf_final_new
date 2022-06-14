@@ -18,10 +18,6 @@
 		"TR_EVENT_ADLS_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-trigger/providers/Microsoft.Storage/storageAccounts/adlseventtriggernjl"
-		},
-		"TR_EVENT_BLOB_PE2_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
 		}
 	},
 	"variables": {
@@ -843,37 +839,6 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_EVENT_BLOB_PE2')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "with PE on BLOB",
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "PL_TRIGGER_EVENT",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/test/blobs/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('TR_EVENT_BLOB_PE2_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/PL_TRIGGER_EVENT')]"
-			]
 		}
 	]
 }
