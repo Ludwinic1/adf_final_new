@@ -14,7 +14,7 @@
 		"TR_EVENT_ADLS_properties_typeProperties_scope": {
 			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-trigger/providers/Microsoft.Storage/storageAccounts/adlseventtriggernjl"
 		},
-		"TR_EVENT_BLOB_PE2_properties_typeProperties_scope": {
+		"TR_EVENT_BLOB_PE_properties_typeProperties_scope": {
 			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
 		}
 	}
