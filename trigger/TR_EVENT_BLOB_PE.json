@@ -1,0 +1,18 @@
+{
+	"name": "TR_EVENT_BLOB_PE",
+	"properties": {
+		"description": "with PE on BLOB",
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/test/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
