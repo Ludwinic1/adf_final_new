@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "with PE on BLOB",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
