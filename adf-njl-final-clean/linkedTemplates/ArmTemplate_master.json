@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://storagenjl.dfs.core.windows.net"
 		},
+		"TR_CUSTOM_EVENT_TEST_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-custom-grid/providers/Microsoft.EventGrid/topics/event-grid-custom-test-1"
+		},
 		"TR_EVENT_ADLS_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-trigger/providers/Microsoft.Storage/storageAccounts/adlseventtriggernjl"
@@ -23,9 +27,9 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
 		},
-		"TR_CUSTOM_EVENT_TEST_properties_typeProperties_scope": {
+		"trigger1_properties_typeProperties_scope": {
 			"type": "string",
-			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-custom-grid/providers/Microsoft.EventGrid/topics/event-grid-custom-test-1"
+			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
 		},
 		"containerUri": {
 			"type": "string",
@@ -62,6 +66,9 @@
 					},
 					"TR_CUSTOM_EVENT_TEST_properties_typeProperties_scope": {
 						"value": "[parameters('TR_CUSTOM_EVENT_TEST_properties_typeProperties_scope')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					},
 					"TR_EVENT_ADLS_properties_typeProperties_scope": {
 						"value": "[parameters('TR_EVENT_ADLS_properties_typeProperties_scope')]"
