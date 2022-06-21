@@ -1,0 +1,18 @@
+{
+	"name": "TR_EVENT_TEST3",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/test/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-system-topic-test2/providers/Microsoft.Storage/storageAccounts/adlssystemtest2",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}
