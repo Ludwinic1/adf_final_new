@@ -1,0 +1,18 @@
+{
+	"name": "TR_CUSTOM_EVENT_TEST",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "CustomEventsTrigger",
+		"typeProperties": {
+			"subjectEndsWith": "",
+			"subjectBeginsWith": "",
+			"scope": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-custom-grid/providers/Microsoft.EventGrid/topics/event-grid-custom-test-1",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}
