@@ -18,6 +18,10 @@
 		"TR_EVENT_TEST2_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-grid-system-topic-test/providers/Microsoft.Storage/storageAccounts/adlsevengridsystemtopic"
+		},
+		"TR_EVENT_TEST3_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-system-topic-test2/providers/Microsoft.Storage/storageAccounts/adlssystemtest2"
 		}
 	},
 	"variables": {
@@ -866,6 +870,37 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/PL_TRIGGER_EVENT_Custom')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_EVENT_TEST3')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "PL_TRIGGER_EVENT",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/test/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('TR_EVENT_TEST3_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated",
+						"Microsoft.Storage.BlobDeleted"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/PL_TRIGGER_EVENT')]"
 			]
 		}
 	]
