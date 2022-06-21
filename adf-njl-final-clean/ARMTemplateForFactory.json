@@ -14,22 +14,6 @@
 		"DataLake1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storagenjl.dfs.core.windows.net"
-		},
-		"TR_CUSTOM_EVENT_TEST_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-custom-grid/providers/Microsoft.EventGrid/topics/event-grid-custom-test-1"
-		},
-		"TR_EVENT_ADLS_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-trigger/providers/Microsoft.Storage/storageAccounts/adlseventtriggernjl"
-		},
-		"TR_EVENT_BLOB_PE_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
-		},
-		"trigger1_properties_typeProperties_scope": {
-			"type": "string",
-			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
 		}
 	},
 	"variables": {
@@ -835,108 +819,6 @@
 						"type": "SecureString",
 						"value": "[parameters('DataLake1_accountKey')]"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_CUSTOM_EVENT_TEST')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "CustomEventsTrigger",
-				"typeProperties": {
-					"subjectEndsWith": "",
-					"subjectBeginsWith": "",
-					"scope": "[parameters('TR_CUSTOM_EVENT_TEST_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated",
-						"Microsoft.Storage.BlobDeleted"
-					]
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_EVENT_ADLS')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "PL_TRIGGER_EVENT",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/firstcontainer/blobs/testdir/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('TR_EVENT_ADLS_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/PL_TRIGGER_EVENT')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/TR_EVENT_BLOB_PE')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "PL_TRIGGER_EVENT",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/test/blobs/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('TR_EVENT_BLOB_PE_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated"
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/PL_TRIGGER_EVENT')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/trigger1')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Stopped",
-				"pipelines": [],
-				"type": "BlobEventsTrigger",
-				"typeProperties": {
-					"blobPathBeginsWith": "/test/blobs/",
-					"ignoreEmptyBlobs": true,
-					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
-					"events": [
-						"Microsoft.Storage.BlobCreated",
-						"Microsoft.Storage.BlobDeleted"
-					]
 				}
 			},
 			"dependsOn": []

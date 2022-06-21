@@ -10,18 +10,6 @@
 		},
 		"DataLake1_properties_typeProperties_url": {
 			"value": "https://storagenjl.dfs.core.windows.net"
-		},
-		"TR_CUSTOM_EVENT_TEST_properties_typeProperties_scope": {
-			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-custom-grid/providers/Microsoft.EventGrid/topics/event-grid-custom-test-1"
-		},
-		"TR_EVENT_ADLS_properties_typeProperties_scope": {
-			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-trigger/providers/Microsoft.Storage/storageAccounts/adlseventtriggernjl"
-		},
-		"TR_EVENT_BLOB_PE_properties_typeProperties_scope": {
-			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
-		},
-		"trigger1_properties_typeProperties_scope": {
-			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-adf-trigger2-pe/providers/Microsoft.Storage/storageAccounts/adlseventtrigger2penjl"
 		}
 	}
 }
