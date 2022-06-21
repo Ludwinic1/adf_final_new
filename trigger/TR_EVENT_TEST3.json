@@ -2,7 +2,7 @@
 	"name": "TR_EVENT_TEST3",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
