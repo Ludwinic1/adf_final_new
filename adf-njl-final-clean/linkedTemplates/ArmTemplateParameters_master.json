@@ -11,6 +11,9 @@
 		"DataLake1_properties_typeProperties_url": {
 			"value": "https://storagenjl.dfs.core.windows.net"
 		},
+		"TR_EVENT_TEST2_properties_typeProperties_scope": {
+			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-grid-system-topic-test/providers/Microsoft.Storage/storageAccounts/adlsevengridsystemtopic"
+		},
 		"containerUri": {
 			"value": ""
 		},

@@ -14,6 +14,10 @@
 		"DataLake1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storagenjl.dfs.core.windows.net"
+		},
+		"TR_EVENT_TEST2_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-event-grid-system-topic-test/providers/Microsoft.Storage/storageAccounts/adlsevengridsystemtopic"
 		}
 	},
 	"variables": {
@@ -830,6 +834,27 @@
 			"properties": {
 				"type": "SelfHosted",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/TR_EVENT_TEST2')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Stopped",
+				"pipelines": [],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/test/blobs/",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('TR_EVENT_TEST2_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated",
+						"Microsoft.Storage.BlobDeleted"
+					]
+				}
 			},
 			"dependsOn": []
 		}
