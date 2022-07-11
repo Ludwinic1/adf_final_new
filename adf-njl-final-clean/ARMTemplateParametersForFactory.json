@@ -8,6 +8,9 @@
 		"DataLake1_accountKey": {
 			"value": ""
 		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kv-njl.vault.azure.net/"
+		},
 		"DataLake1_properties_typeProperties_url": {
 			"value": "https://storagenjl.dfs.core.windows.net"
 		},
@@ -16,6 +19,9 @@
 		},
 		"TR_EVENT_TEST3_properties_typeProperties_scope": {
 			"value": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-system-topic-test2/providers/Microsoft.Storage/storageAccounts/adlssystemtest2"
+		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"value": "https://kv-njl.vault.azure.net/"
 		}
 	}
 }
