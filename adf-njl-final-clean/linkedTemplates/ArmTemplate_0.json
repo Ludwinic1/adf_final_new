@@ -15,13 +15,13 @@
 			"type": "string",
 			"defaultValue": "https://kv-njl.vault.azure.net/"
 		},
-		"DataLake1_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://storagenjl.dfs.core.windows.net"
-		},
 		"AzureKeyVault2_properties_typeProperties_baseUrl": {
 			"type": "string",
 			"defaultValue": "https://kv-njl.vault.azure.net/"
+		},
+		"DataLake1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://storagenjl.dfs.core.windows.net"
 		},
 		"TR_EVENT_TEST2_properties_typeProperties_scope": {
 			"type": "string",
@@ -836,6 +836,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault2')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault2_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DataLake1')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -863,14 +876,13 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureKeyVault2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"name": "[concat(parameters('factoryName'), '/credential3333')]",
+			"type": "Microsoft.DataFactory/factories/credentials",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"annotations": [],
-				"type": "AzureKeyVault",
+				"type": "ManagedIdentity",
 				"typeProperties": {
-					"baseUrl": "[parameters('AzureKeyVault2_properties_typeProperties_baseUrl')]"
+					"resourceId": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-uami/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami-adf-test1"
 				}
 			},
 			"dependsOn": []

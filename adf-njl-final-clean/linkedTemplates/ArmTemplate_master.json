@@ -15,6 +15,10 @@
 			"type": "string",
 			"defaultValue": "https://kv-njl.vault.azure.net/"
 		},
+		"AzureKeyVault2_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-njl.vault.azure.net/"
+		},
 		"DataLake1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://storagenjl.dfs.core.windows.net"
@@ -26,10 +30,6 @@
 		"TR_EVENT_TEST3_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/126c93ce-f0a6-493c-8991-cdcbd797366d/resourceGroups/rg-system-topic-test2/providers/Microsoft.Storage/storageAccounts/adlssystemtest2"
-		},
-		"AzureKeyVault2_properties_typeProperties_baseUrl": {
-			"type": "string",
-			"defaultValue": "https://kv-njl.vault.azure.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -64,11 +64,11 @@
 					"AzureKeyVault1_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
 					},
-					"DataLake1_properties_typeProperties_url": {
-						"value": "[parameters('DataLake1_properties_typeProperties_url')]"
-					},
 					"AzureKeyVault2_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault2_properties_typeProperties_baseUrl')]"
+					},
+					"DataLake1_properties_typeProperties_url": {
+						"value": "[parameters('DataLake1_properties_typeProperties_url')]"
 					},
 					"TR_EVENT_TEST2_properties_typeProperties_scope": {
 						"value": "[parameters('TR_EVENT_TEST2_properties_typeProperties_scope')]"
